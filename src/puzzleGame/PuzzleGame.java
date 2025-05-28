@@ -5,7 +5,7 @@ import java.awt.GridLayout;
 
 import javax.swing.*;
 import java.awt.event.*;
-public class Puzzle implements ActionListener{
+public class PuzzleGame implements ActionListener{
     JFrame f;
     int getsu = 4;
     JButton [][] btn = new JButton [getsu][getsu];
@@ -17,7 +17,7 @@ public class Puzzle implements ActionListener{
     JButton firstClick = null;
     int firstRow=0, firstCol=0;
 
-    public Puzzle() {
+    public PuzzleGame() {
         f = new JFrame("게임");
         for(int i = 0; i<4;i++) {
             for(int j = 0;j<4;j++) {
@@ -28,7 +28,7 @@ public class Puzzle implements ActionListener{
 
     }//end of Game
 
-    void addLayout() {
+    public void addLayout() {
 
         f.setLayout(new GridLayout(getsu, getsu));
         for(int i = 0;i<getsu;i++) {
@@ -44,11 +44,12 @@ public class Puzzle implements ActionListener{
         }
         f.setSize(700, 700);
         f.setVisible(true);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //  퍼즐 게임 창만 닫음
 
     }//end of addLayout
 
-    void initChar() {
+    public void initChar() {
         int alpha =0;
 
         DASI:
@@ -81,11 +82,12 @@ public class Puzzle implements ActionListener{
         }
     }
 
-    void showAnswer() {
+    public void showAnswer() {
         // 문자를 버튼에 지정하기
         for(int i=0 ; i<getsu;i++) {
             for(int j=0;j<getsu;j++) {
-                btn[i][j].setIcon(new ImageIcon ("src\\game\\img\\b"+answer[i][j]+".PNG"));
+                btn[i][j].setIcon(new ImageIcon(getClass().getResource("/puzzleGame/img/b" + answer[i][j] + ".png")));
+
 
             }
         }
@@ -118,12 +120,12 @@ public class Puzzle implements ActionListener{
                         firstClick = b;
                         firstRow = i;
                         firstCol = j;
-                        firstClick.setIcon(new ImageIcon ("src\\game\\img\\b"+answer[firstRow][firstCol]+".PNG"));
+                        firstClick.setIcon(new ImageIcon(getClass().getResource("/puzzleGame/img/b" + answer[firstRow][firstCol] + ".png")));
 
                     }else { //두번째 선택시
                         if(answer[i][j]==answer[firstRow][firstCol]) {
                             firstClick.setBackground(Color.gray);
-                            b.setIcon(new ImageIcon ("src\\game\\img\\b"+answer[firstRow][firstCol]+".PNG"));
+                            b.setIcon(new ImageIcon(getClass().getResource("/puzzleGame/img/b" + answer[firstRow][firstCol] + ".png")));
 
                         }else {
                             firstClick.setIcon(null);
@@ -156,7 +158,7 @@ public class Puzzle implements ActionListener{
 
     public static void main(String[] args) {
 
-        Puzzle g = new Puzzle();
+        PuzzleGame g = new PuzzleGame();
         g.addLayout();
         g.initChar();
         g.showAnswer();

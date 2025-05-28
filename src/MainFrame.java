@@ -35,9 +35,17 @@ public class MainFrame extends JFrame {
         });
 
         // 나머지 게임은 추후 구현 예정
+//        puzzleBtn.addActionListener(e -> {
+//            new puzzleGame.PuzzleGame();  // 패키지 경로까지 포함해서 클래스 호출
+//        });
+
         puzzleBtn.addActionListener(e -> {
-            JOptionPane.showMessageDialog(null, "그림 맞추기 게임은 아직 준비 중입니다.");
+            puzzleGame.PuzzleGame g = new puzzleGame.PuzzleGame();
+            g.addLayout();
+            g.initChar();
+            g.showAnswer();
         });
+
 
         pacmanBtn.addActionListener(e -> {
             JOptionPane.showMessageDialog(null, "팩맨 게임은 아직 준비 중입니다.");
