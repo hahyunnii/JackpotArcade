@@ -37,13 +37,17 @@ public class Omok extends JFrame implements MouseListener {
     public Omok(String title) {
         super(title);
 
-        // Event Handler를 등록한다.
         addMouseListener(this);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent we) {
-                System.exit(0); // 우측상단의 x버튼을 누르면 프로그램을 종료한다.
-            }
-        });
+
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+//        // Event Handler를 등록한다.
+//        addMouseListener(this);
+//        addWindowListener(new WindowAdapter() {
+//            public void windowClosing(WindowEvent we) {
+//                System.exit(0); // 우측상단의 x버튼을 누르면 프로그램을 종료한다.
+//            }
+//        });
 
         setBackground(new Color(206, 167, 61)); // 바둑판 배경 설정
 
