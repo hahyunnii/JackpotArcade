@@ -31,7 +31,7 @@ public class MainFrame extends JFrame {
 
         // 버튼 이벤트 연결 (오목만 연결)
         omokBtn.addActionListener((ActionEvent e) -> {
-            new OmokMini("오목 게임");
+            new Omok("오목 게임");
         });
 
         // 나머지 게임은 추후 구현 예정
