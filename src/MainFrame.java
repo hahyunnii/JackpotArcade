@@ -92,16 +92,69 @@ public class MainFrame extends JFrame {
         setVisible(true);
     }
 
+//    private JButton createStyledButton(String text, Font font, Color bgColor) {
+//        JButton button = new JButton(text);
+//        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+//        button.setFont(font);
+//        button.setForeground(Color.WHITE);
+//        button.setBackground(bgColor);
+//        button.setFocusPainted(false);
+//        button.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
+//        return button;
+//    }
+
     private JButton createStyledButton(String text, Font font, Color bgColor) {
-        JButton button = new JButton(text);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JButton button = new JButton(text) {
+            @Override
+            protected void paintComponent(Graphics g) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+                int width = getWidth();
+                int height = getHeight();
+
+                // 그라데이션 배경
+                Color top = bgColor.brighter();
+                Color bottom = bgColor.darker();
+                GradientPaint gp = new GradientPaint(0, 0, top, 0, height, bottom);
+                g2.setPaint(gp);
+                g2.fillRoundRect(0, 0, width, height, 30, 30);
+
+                // 외곽선
+                g2.setColor(Color.WHITE);
+                g2.setStroke(new BasicStroke(2));
+                g2.drawRoundRect(0, 0, width - 1, height - 1, 30, 30);
+
+                // 텍스트
+                g2.setFont(getFont());
+                FontMetrics fm = g2.getFontMetrics();
+                int textWidth = fm.stringWidth(getText());
+                int textHeight = fm.getAscent();
+                g2.setColor(getForeground());
+                g2.drawString(getText(), (width - textWidth) / 2, (height + textHeight) / 2 - 4);
+
+                g2.dispose();
+            }
+
+            @Override
+            protected void paintBorder(Graphics g) { } // 기본 border 제거
+
+            @Override
+            public void updateUI() {
+                super.updateUI();
+                setContentAreaFilled(false);
+                setFocusPainted(false);
+                setOpaque(false);
+            }
+        };
+
         button.setFont(font);
         button.setForeground(Color.WHITE);
-        button.setBackground(bgColor);
-        button.setFocusPainted(false);
-        button.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
+        button.setPreferredSize(new Dimension(300, 50));
+        button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         return button;
     }
+
 
     public static void main(String[] args) {
         new MainFrame();
