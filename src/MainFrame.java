@@ -29,16 +29,12 @@ public class MainFrame extends JFrame {
         JButton tetrisBtn = new JButton("테트리스");
         JButton slotBtn = new JButton("슬롯머신");
 
-        // 버튼 이벤트 연결 (오목만 연결)
+        // 오목 버튼
         omokBtn.addActionListener((ActionEvent e) -> {
             new Omok("오목 게임");
         });
 
-        // 나머지 게임은 추후 구현 예정
-//        puzzleBtn.addActionListener(e -> {
-//            new puzzleGame.PuzzleGame();  // 패키지 경로까지 포함해서 클래스 호출
-//        });
-
+        // 그림 맞추기 버튼
         puzzleBtn.addActionListener(e -> {
             puzzleGame.PuzzleGame g = new puzzleGame.PuzzleGame();
             g.addLayout();
@@ -46,7 +42,7 @@ public class MainFrame extends JFrame {
             g.showAnswer();
         });
 
-
+        // 팩맨 & 테트리스 준비 중
         pacmanBtn.addActionListener(e -> {
             JOptionPane.showMessageDialog(null, "팩맨 게임은 아직 준비 중입니다.");
         });
@@ -55,8 +51,14 @@ public class MainFrame extends JFrame {
             JOptionPane.showMessageDialog(null, "테트리스 게임은 아직 준비 중입니다.");
         });
 
+        // 슬롯머신 버튼: 새 창으로 띄우기
         slotBtn.addActionListener(e -> {
-            JOptionPane.showMessageDialog(null, "슬롯머신 게임은 아직 준비 중입니다.");
+            JFrame slotFrame = new JFrame("🎰 슬롯머신");
+            slotFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            slotFrame.setSize(400, 300);
+            slotFrame.setLocationRelativeTo(null);
+            slotFrame.setContentPane(new SlotMachineGame()); // JPanel 기반 클래스여야 함
+            slotFrame.setVisible(true);
         });
 
         // 버튼 패널에 추가
