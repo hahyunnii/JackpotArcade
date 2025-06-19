@@ -132,51 +132,99 @@ public class Puzzle implements ActionListener{
     }
 
 
+//    public void actionPerformed(ActionEvent e) {
+//
+//        JButton b = (JButton)e.getSource();
+//
+//        for(int i=0 ; i<getsu;i++) {
+//            for(int j=0;j<getsu;j++) {
+//                if(b == btn[i][j]) {
+//
+//
+//                    if(firstClick == null) { //첫번째 선택시
+//                        firstClick = b;
+//                        firstRow = i;
+//                        firstCol = j;
+//                        firstClick.setIcon(new ImageIcon(getClass().getResource("/puzzleGame/img/b" + answer[firstRow][firstCol] + ".png")));
+//
+//                    }else { //두번째 선택시
+//                        if(answer[i][j]==answer[firstRow][firstCol]) {
+//                            firstClick.setBackground(Color.gray);
+//                            b.setIcon(new ImageIcon(getClass().getResource("/puzzleGame/img/b" + answer[firstRow][firstCol] + ".png")));
+//
+//                        }else {
+//                            firstClick.setIcon(null);
+//
+//                        }
+//                        if(i== firstRow && j == firstCol) {
+//                            continue;
+//                        }
+//
+//
+//                        firstClick= null;
+//
+//
+//
+//
+//                    }
+//
+//                }
+//
+//            }
+//        }
+//
+//
+//
+//
+//    }//end of actionPerformed
+
     public void actionPerformed(ActionEvent e) {
+        JButton b = (JButton) e.getSource();
 
-        JButton b = (JButton)e.getSource();
-
-        for(int i=0 ; i<getsu;i++) {
-            for(int j=0;j<getsu;j++) {
-                if(b == btn[i][j]) {
-
-
-                    if(firstClick == null) { //첫번째 선택시
+        for (int i = 0; i < getsu; i++) {
+            for (int j = 0; j < getsu; j++) {
+                if (b == btn[i][j]) {
+                    if (firstClick == null) {
+                        // 첫 번째 클릭
                         firstClick = b;
                         firstRow = i;
                         firstCol = j;
                         firstClick.setIcon(new ImageIcon(getClass().getResource("/puzzleGame/img/b" + answer[firstRow][firstCol] + ".png")));
+                    } else {
+                        // 같은 버튼 다시 누르면 무시
+                        if (firstClick == b) return;
 
-                    }else { //두번째 선택시
-                        if(answer[i][j]==answer[firstRow][firstCol]) {
-                            firstClick.setBackground(Color.gray);
-                            b.setIcon(new ImageIcon(getClass().getResource("/puzzleGame/img/b" + answer[firstRow][firstCol] + ".png")));
+                        // 두 번째 클릭
+                        b.setIcon(new ImageIcon(getClass().getResource("/puzzleGame/img/b" + answer[i][j] + ".png")));
 
-                        }else {
-                            firstClick.setIcon(null);
+                        // 맞을 경우
+                        if (answer[i][j] == answer[firstRow][firstCol]) {
+                            firstClick.setBackground(Color.GRAY);
+                            b.setBackground(Color.GRAY);
+                            firstClick = null;
+                        } else {
+                            // 다른 경우: 클릭된 두 버튼을 final로 복사
+                            JButton first = firstClick;
+                            JButton second = b;
 
+                            Timer timer = new Timer(800, new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent evt) {
+                                    first.setIcon(null);
+                                    second.setIcon(null);
+                                }
+                            });
+                            timer.setRepeats(false);
+                            timer.start();
+
+                            firstClick = null;
                         }
-                        if(i== firstRow && j == firstCol) {
-                            continue;
-                        }
-
-
-                        firstClick= null;
-
-
-
-
                     }
-
+                    return;
                 }
-
             }
         }
-
-
-
-
-    }//end of actionPerformed
+    }
 
 
 
