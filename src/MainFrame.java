@@ -1,4 +1,5 @@
 import slotMachineGame.SlotMachineGame;
+import pacmanGame.PacmanGame; // ✅ PacmanGame 패키지 임포트 추가
 
 import javax.swing.*;
 import java.awt.*;
@@ -44,11 +45,18 @@ public class MainFrame extends JFrame {
             g.showAnswer();
         });
 
-        // 팩맨 & 테트리스 준비 중
+        // 팩맨 버튼: 실행 연결
         pacmanBtn.addActionListener(e -> {
-            JOptionPane.showMessageDialog(null, "팩맨 게임은 아직 준비 중입니다.");
+            // PacmanGame이 JFrame을 직접 실행하는 구조이므로 main 호출
+            try {
+                PacmanGame.main(new String[0]);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "팩맨 실행 오류: " + ex.getMessage());
+                ex.printStackTrace();
+            }
         });
 
+        // 테트리스 준비 중
         tetrisBtn.addActionListener(e -> {
             JOptionPane.showMessageDialog(null, "테트리스 게임은 아직 준비 중입니다.");
         });
