@@ -5,7 +5,7 @@ import java.awt.GridLayout;
 
 import javax.swing.*;
 import java.awt.event.*;
-public class PuzzleGame implements ActionListener{
+public class Puzzle implements ActionListener{
     JFrame f;
     int getsu = 4;
     JButton [][] btn = new JButton [getsu][getsu];
@@ -17,7 +17,7 @@ public class PuzzleGame implements ActionListener{
     JButton firstClick = null;
     int firstRow=0, firstCol=0;
 
-    public PuzzleGame() {
+    public Puzzle() {
         f = new JFrame("게임");
         for(int i = 0; i<4;i++) {
             for(int j = 0;j<4;j++) {
@@ -158,7 +158,7 @@ public class PuzzleGame implements ActionListener{
 
     public static void main(String[] args) {
 
-        PuzzleGame g = new PuzzleGame();
+        Puzzle g = new Puzzle();
         g.addLayout();
         g.initChar();
         g.showAnswer();

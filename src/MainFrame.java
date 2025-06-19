@@ -1,5 +1,7 @@
-import slotMachineGame.SlotMachineGame;
-import pacmanGame.PacmanGame;
+import omokGame.Omok;
+import puzzleGame.Puzzle;
+import slotMachineGame.SlotMachine;
+import pacmanGame.Pacman;
 import tetrisGame.Tetris; // ✅ Gist 기반 테트리스 클래스 import 추가
 
 import javax.swing.*;
@@ -34,7 +36,7 @@ public class MainFrame extends JFrame {
         });
 
         puzzleBtn.addActionListener(e -> {
-            puzzleGame.PuzzleGame g = new puzzleGame.PuzzleGame();
+            Puzzle g = new Puzzle();
             g.addLayout();
             g.initChar();
             g.showAnswer();
@@ -42,7 +44,7 @@ public class MainFrame extends JFrame {
 
         pacmanBtn.addActionListener(e -> {
             try {
-                PacmanGame.main(new String[0]);
+                Pacman.main(new String[0]);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "팩맨 실행 오류: " + ex.getMessage());
                 ex.printStackTrace();
@@ -64,7 +66,7 @@ public class MainFrame extends JFrame {
             slotFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             slotFrame.setSize(400, 300);
             slotFrame.setLocationRelativeTo(null);
-            slotFrame.setContentPane(new SlotMachineGame());
+            slotFrame.setContentPane(new SlotMachine());
             slotFrame.setVisible(true);
         });
 

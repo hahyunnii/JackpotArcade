@@ -5,17 +5,17 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.Random;
 
-public class PacmanGame extends JFrame {
+public class Pacman extends JFrame {
     public static void main(String[] args) {
         final JFrame frame = new JFrame();
 
-        final ImageIcon successIcon = new ImageIcon(PacmanGame.class.getResource("/pacmanGame/img/successIcon.png"));
-        final ImageIcon smallDot     = new ImageIcon(PacmanGame.class.getResource("/pacmanGame/img/smallDot.png"));
-        final ImageIcon bigDot       = new ImageIcon(PacmanGame.class.getResource("/pacmanGame/img/bigDot.png"));
-        final ImageIcon wall         = new ImageIcon(PacmanGame.class.getResource("/pacmanGame/img/wall.png"));
-        final ImageIcon enemy        = new ImageIcon(PacmanGame.class.getResource("/pacmanGame/img/enemy.png"));
-        final ImageIcon pacman       = new ImageIcon(PacmanGame.class.getResource("/pacmanGame/img/pacman.png"));
-        final ImageIcon empty        = new ImageIcon(PacmanGame.class.getResource("/pacmanGame/img/empty.png"));
+        final ImageIcon successIcon = new ImageIcon(Pacman.class.getResource("/pacmanGame/img/successIcon.png"));
+        final ImageIcon smallDot     = new ImageIcon(Pacman.class.getResource("/pacmanGame/img/smallDot.png"));
+        final ImageIcon bigDot       = new ImageIcon(Pacman.class.getResource("/pacmanGame/img/bigDot.png"));
+        final ImageIcon wall         = new ImageIcon(Pacman.class.getResource("/pacmanGame/img/wall.png"));
+        final ImageIcon enemy        = new ImageIcon(Pacman.class.getResource("/pacmanGame/img/enemy.png"));
+        final ImageIcon pacman       = new ImageIcon(Pacman.class.getResource("/pacmanGame/img/pacman.png"));
+        final ImageIcon empty        = new ImageIcon(Pacman.class.getResource("/pacmanGame/img/empty.png"));
 
 
         final JButton button = new JButton(successIcon);

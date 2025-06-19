@@ -6,14 +6,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
-public class SlotMachineGame extends JPanel {
+public class SlotMachine extends JPanel {
 
     private final String[] symbolNames = {"cherry", "lemon", "bell", "seven", "star", "apple"};
     private final JLabel[] slots = new JLabel[3];
     private final Random random = new Random();
     private final JLabel resultLabel = new JLabel("버튼을 눌러 돌려보세요!", SwingConstants.CENTER);
 
-    public SlotMachineGame() {
+    public SlotMachine() {
         setLayout(new BorderLayout());
         setBackground(new Color(30, 144, 255)); // 파란 배경
 
