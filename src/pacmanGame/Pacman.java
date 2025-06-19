@@ -205,7 +205,7 @@ public class Pacman extends JFrame {
 
         frame.add(panel);
         frame.setTitle("�ѸǤ�");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
         frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
     }
