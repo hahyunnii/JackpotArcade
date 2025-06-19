@@ -21,13 +21,45 @@ public class MainFrame extends JFrame {
         mainPanel.setLayout(new BorderLayout());
         mainPanel.setBackground(new Color(9, 14, 34));
 
+        // JACKPOT ARCADE 제목 (비버튼 형태)
+        JLabel title = new JLabel("JACKPOT ARCADE", SwingConstants.CENTER) {
+            @Override
+            protected void paintComponent(Graphics g) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+                int width = getWidth();
+                int height = getHeight();
+                Color bgColor = new Color(255, 173, 51);
+                Color top = bgColor.brighter();
+                Color bottom = bgColor.darker();
+                GradientPaint gp = new GradientPaint(0, 0, top, 0, height, bottom);
+                g2.setPaint(gp);
+                g2.fillRoundRect(0, 0, width, height, 30, 30);
+
+                g2.setColor(Color.WHITE);
+                g2.setStroke(new BasicStroke(2));
+                g2.drawRoundRect(0, 0, width - 1, height - 1, 30, 30);
+
+                g2.setFont(getFont());
+                FontMetrics fm = g2.getFontMetrics();
+                int textWidth = fm.stringWidth(getText());
+                int textHeight = fm.getAscent();
+                g2.setColor(getForeground());
+                g2.drawString(getText(), (width - textWidth) / 2, (height + textHeight) / 2 - 4);
+
+                g2.dispose();
+            }
+        };
+        title.setFont(new Font("Arial", Font.BOLD, 24));
+        title.setForeground(Color.WHITE);
+        title.setPreferredSize(new Dimension(350, 70));
+        title.setOpaque(false);
+        title.setFocusable(false);
+        title.setBorder(BorderFactory.createEmptyBorder());
+
         JPanel titlePanel = new JPanel();
         titlePanel.setBackground(new Color(9, 14, 34));
-        JLabel title = new JLabel("JACKPOT ARCADE");
-        title.setFont(new Font("Arial", Font.BOLD, 32));
-        title.setForeground(Color.YELLOW);
-        title.setBorder(BorderFactory.createLineBorder(Color.RED, 5));
-        title.setHorizontalAlignment(SwingConstants.CENTER);
         titlePanel.add(title);
         mainPanel.add(titlePanel, BorderLayout.NORTH);
 
@@ -76,6 +108,12 @@ public class MainFrame extends JFrame {
             slotFrame.setVisible(true);
         });
 
+        omokBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+        puzzleBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+        pacmanBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+        tetrisBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+        slotBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         buttonPanel.add(Box.createVerticalStrut(30));
         buttonPanel.add(omokBtn);
         buttonPanel.add(Box.createVerticalStrut(15));
@@ -87,21 +125,15 @@ public class MainFrame extends JFrame {
         buttonPanel.add(Box.createVerticalStrut(15));
         buttonPanel.add(slotBtn);
 
-        mainPanel.add(buttonPanel, BorderLayout.CENTER);
+        JPanel centerPanel = new JPanel();
+        centerPanel.setBackground(new Color(9, 14, 34));
+        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
+        centerPanel.add(buttonPanel);
+
+        mainPanel.add(centerPanel, BorderLayout.CENTER);
         add(mainPanel);
         setVisible(true);
     }
-
-//    private JButton createStyledButton(String text, Font font, Color bgColor) {
-//        JButton button = new JButton(text);
-//        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-//        button.setFont(font);
-//        button.setForeground(Color.WHITE);
-//        button.setBackground(bgColor);
-//        button.setFocusPainted(false);
-//        button.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
-//        return button;
-//    }
 
     private JButton createStyledButton(String text, Font font, Color bgColor) {
         JButton button = new JButton(text) {
@@ -113,19 +145,16 @@ public class MainFrame extends JFrame {
                 int width = getWidth();
                 int height = getHeight();
 
-                // 그라데이션 배경
                 Color top = bgColor.brighter();
                 Color bottom = bgColor.darker();
                 GradientPaint gp = new GradientPaint(0, 0, top, 0, height, bottom);
                 g2.setPaint(gp);
                 g2.fillRoundRect(0, 0, width, height, 30, 30);
 
-                // 외곽선
                 g2.setColor(Color.WHITE);
                 g2.setStroke(new BasicStroke(2));
                 g2.drawRoundRect(0, 0, width - 1, height - 1, 30, 30);
 
-                // 텍스트
                 g2.setFont(getFont());
                 FontMetrics fm = g2.getFontMetrics();
                 int textWidth = fm.stringWidth(getText());
@@ -137,7 +166,7 @@ public class MainFrame extends JFrame {
             }
 
             @Override
-            protected void paintBorder(Graphics g) { } // 기본 border 제거
+            protected void paintBorder(Graphics g) { }
 
             @Override
             public void updateUI() {
@@ -154,7 +183,6 @@ public class MainFrame extends JFrame {
         button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         return button;
     }
-
 
     public static void main(String[] args) {
         new MainFrame();
