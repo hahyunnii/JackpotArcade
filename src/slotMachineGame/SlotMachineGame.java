@@ -1,3 +1,5 @@
+package slotMachineGame;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -6,7 +8,7 @@ import java.util.Random;
 
 public class SlotMachineGame extends JPanel {
 
-    private final String[] symbols = {"🍒", "🍋", "🔔", "7️⃣", "⭐", "🍎"};
+    private final String[] symbolNames = {"cherry", "lemon", "bell", "seven", "star", "apple"};
     private final JLabel[] slots = new JLabel[3];
     private final Random random = new Random();
     private final JLabel resultLabel = new JLabel("버튼을 눌러 돌려보세요!", SwingConstants.CENTER);
@@ -21,8 +23,8 @@ public class SlotMachineGame extends JPanel {
         slotPanel.setBackground(new Color(255, 215, 0)); // 노란 슬롯 배경
 
         for (int i = 0; i < 3; i++) {
-            JLabel label = new JLabel("❔", SwingConstants.CENTER);
-            label.setFont(new Font("Segoe UI Emoji", Font.BOLD, 60));
+            JLabel label = new JLabel();
+            label.setHorizontalAlignment(SwingConstants.CENTER);
             label.setOpaque(true);
             label.setBackground(Color.WHITE);
             label.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
@@ -57,16 +59,25 @@ public class SlotMachineGame extends JPanel {
 
     private void spinSlots() {
         for (int i = 0; i < 3; i++) {
-            String symbol = symbols[random.nextInt(symbols.length)];
-            slots[i].setText(symbol);
+            int idx = random.nextInt(symbolNames.length);
+            String symbol = symbolNames[idx];
+
+            // 이미지 로딩 경로: 리소스 기준으로 설정
+            ImageIcon icon = new ImageIcon(getClass().getResource("/slotMachineGame/img/" + symbol + ".png"));
+
+            // 이미지 크기 조정
+            Image scaled = icon.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+            slots[i].setIcon(new ImageIcon(scaled));
+            slots[i].setName(symbol); // 비교용 이름 저장
         }
+
         checkResult();
     }
 
     private void checkResult() {
-        String s1 = slots[0].getText();
-        String s2 = slots[1].getText();
-        String s3 = slots[2].getText();
+        String s1 = slots[0].getName();
+        String s2 = slots[1].getName();
+        String s3 = slots[2].getName();
 
         if (s1.equals(s2) && s2.equals(s3)) {
             resultLabel.setText("🎉 잭팟! 3개 일치!");
