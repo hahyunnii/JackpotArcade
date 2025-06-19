@@ -15,7 +15,7 @@ public class MainFrame extends JFrame {
         setSize(400, 600);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(false);
+        setResizable(true);
 
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
@@ -30,7 +30,7 @@ public class MainFrame extends JFrame {
 
                 int width = getWidth();
                 int height = getHeight();
-                Color bgColor = new Color(255, 173, 51);
+                Color bgColor = new Color(255, 51, 51); // 빨간색
                 Color top = bgColor.brighter();
                 Color bottom = bgColor.darker();
                 GradientPaint gp = new GradientPaint(0, 0, top, 0, height, bottom);
