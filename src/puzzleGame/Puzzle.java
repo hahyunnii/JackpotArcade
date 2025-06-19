@@ -82,30 +82,55 @@ public class Puzzle implements ActionListener{
         }
     }
 
+//    public void showAnswer() {
+//        // 문자를 버튼에 지정하기
+//        for(int i=0 ; i<getsu;i++) {
+//            for(int j=0;j<getsu;j++) {
+//                btn[i][j].setIcon(new ImageIcon(getClass().getResource("/puzzleGame/img/b" + answer[i][j] + ".png")));
+//
+//
+//            }
+//        }
+//
+//        //버튼에서 문자를 1초후에 지우기
+//        try {
+//            Thread.sleep(1000);
+//        }catch(Exception ex) {}
+//
+//
+//        for(int i=0 ; i<getsu;i++) {
+//            for(int j=0;j<getsu;j++) {
+//                btn[i][j].setIcon(null);
+//            }
+//
+//        }//end of 1초후에 지우기
+//
+//    }//end of showAnswer
+
     public void showAnswer() {
-        // 문자를 버튼에 지정하기
-        for(int i=0 ; i<getsu;i++) {
-            for(int j=0;j<getsu;j++) {
+        // 문자를 버튼에 이미지로 지정
+        for (int i = 0; i < getsu; i++) {
+            for (int j = 0; j < getsu; j++) {
                 btn[i][j].setIcon(new ImageIcon(getClass().getResource("/puzzleGame/img/b" + answer[i][j] + ".png")));
-
-
             }
         }
 
-        //버튼에서 문자를 1초후에 지우기
-        try {
-            Thread.sleep(1000);
-        }catch(Exception ex) {}
-
-
-        for(int i=0 ; i<getsu;i++) {
-            for(int j=0;j<getsu;j++) {
-                btn[i][j].setIcon(null);
+        // 1초 후에 이미지 지우기 (Timer 사용)
+        new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (int i = 0; i < getsu; i++) {
+                    for (int j = 0; j < getsu; j++) {
+                        btn[i][j].setIcon(null);
+                    }
+                }
             }
+        }) {{
+            setRepeats(false); // 한 번만 실행되도록
+            start();
+        }};
+    }
 
-        }//end of 1초후에 지우기
-
-    }//end of showAnswer
 
     public void actionPerformed(ActionEvent e) {
 
