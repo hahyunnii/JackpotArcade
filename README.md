@@ -54,7 +54,6 @@ MainFrame.java           - 게임 선택 메인화면
 └── SlotMachineGame.java - 슬롯머신
 ```
 
-## 🖼️ 스크린샷
 
 ## 🖼️ 게임 화면 스크린샷
 
