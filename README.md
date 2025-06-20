@@ -61,34 +61,22 @@ MainFrame.java           - 게임 선택 메인화면
 ### 🎮 메인 화면
 ![Main Screen](./screenshots/MainFrame.png)
 
----
 
 ### 🟤 오목 (Omok)
-- 플레이 화면  
   ![Omok1](./screenshots/omok1.png)
 
 
----
-
 ### 🧩 그림 맞추기 퍼즐 (Puzzle Matching)
-
-- 퍼즐 두 개 성공 시  
   ![Puzzle3](./screenshots/puzzle3.png)
 
----
 
 ### 👻 팩맨 (Pacman)
-- 게임 실행 중  
   ![Pacman1](./screenshots/pacman1.png)
 
 
----
-
-### 🧱 테트리스 (Tetris)
-- 블록 떨어지는 화면  
+### 🧱 테트리스 (Tetris) 
   ![Tetris](./screenshots/tetris.png)
 
----
 
 ### 🎰 슬롯머신 (Slot Machine)
 
