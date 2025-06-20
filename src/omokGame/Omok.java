@@ -215,7 +215,7 @@ public class Omok extends JFrame implements MouseListener {
     // public static void main(String[] args)
     //-----------------------------------------------------------------------------------------------------------
     public static void main(String[] args) {
-        new Omok("미니 오목 게임");
+        new Omok("Omok");
 
     } // End - public static void main(String[] args)
 

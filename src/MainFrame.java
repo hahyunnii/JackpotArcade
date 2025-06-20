@@ -100,7 +100,7 @@ public class MainFrame extends JFrame {
             }
         });
         slotBtn.addActionListener(e -> {
-            JFrame slotFrame = new JFrame("🎰 슬롯머신");
+            JFrame slotFrame = new JFrame("Slot Machine");
             slotFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             slotFrame.setSize(400, 300);
             slotFrame.setLocationRelativeTo(null);

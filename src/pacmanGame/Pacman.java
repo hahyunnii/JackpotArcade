@@ -204,7 +204,7 @@ public class Pacman extends JFrame {
         f[7][7].setIcon(enemy); f[7][8].setIcon(empty);f[7][9].setIcon(empty);
 
         frame.add(panel);
-        frame.setTitle("�ѸǤ�");
+        frame.setTitle("Pacman");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
         frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);

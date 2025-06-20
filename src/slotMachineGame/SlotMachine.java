@@ -33,7 +33,7 @@ public class SlotMachine extends JPanel {
         }
 
         // 버튼
-        JButton spinButton = new JButton("🎲 슬롯 돌리기!");
+        JButton spinButton = new JButton(" 슬롯 돌리기!");
         spinButton.setFont(new Font("맑은 고딕", Font.BOLD, 20));
         spinButton.setBackground(new Color(255, 105, 180));
         spinButton.setForeground(Color.WHITE);
@@ -80,11 +80,11 @@ public class SlotMachine extends JPanel {
         String s3 = slots[2].getName();
 
         if (s1.equals(s2) && s2.equals(s3)) {
-            resultLabel.setText("🎉 잭팟! 3개 일치!");
+            resultLabel.setText("잭팟! 3개 일치!");
         } else if (s1.equals(s2) || s2.equals(s3) || s1.equals(s3)) {
-            resultLabel.setText("😊 두 개 일치! 아깝네요~");
+            resultLabel.setText("두 개 일치! 아깝네요~");
         } else {
-            resultLabel.setText("😢 다시 도전해보세요!");
+            resultLabel.setText("다시 도전해보세요!");
         }
     }
 }

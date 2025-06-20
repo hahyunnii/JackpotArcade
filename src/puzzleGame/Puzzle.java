@@ -15,7 +15,7 @@ public class Puzzle implements ActionListener {
     int firstRow = 0, firstCol = 0;
 
     public Puzzle() {
-        f = new JFrame("그림 맞추기");
+        f = new JFrame("Puzzle");
         for (int i = 0; i < getsu; i++) {
             for (int j = 0; j < getsu; j++) {
                 btn[i][j] = new JButton();
