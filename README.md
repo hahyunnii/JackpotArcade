@@ -17,14 +17,14 @@ Java GUI 기반의 아케이드 게임 모음입니다.
 
 ---
 
-## ▶ 실행 방법
+## 🕹️ 실행 방법
 
 1. `MainFrame.java` 파일을 실행합니다.
 2. 메인 화면에 표시되는 5가지 게임 중 원하는 게임 버튼을 클릭하여 실행합니다.
 
 ---
 
-## 🕹️ 조작 방법
+## 🕹️ 게임별 세부 조작 방법
 
 - **오목**: 마우스 왼쪽 클릭(흑), 오른쪽 클릭(백)
 - **그림 맞추기**: 마우스로 2개의 버튼 클릭
@@ -54,33 +54,33 @@ MainFrame.java           - 게임 선택 메인화면
 └── SlotMachineGame.java - 슬롯머신
 ```
 
-
+---
 ## 🖼️ 게임 화면 스크린샷
 
 ### 🎮 메인 화면
 <img src="./screenshots/MainFrame.png" width="300"/>
 
----
+
 
 ### 🟤 오목 (Omok)
 <img src="./screenshots/omok1.png" width="300"/>
 
----
+
 
 ### 🧩 그림 맞추기 퍼즐 (Puzzle Matching)
 <img src="./screenshots/puzzle3.png" width="300"/>
 
----
+
 
 ### 👻 팩맨 (Pacman)
 <img src="./screenshots/pacman1.png" width="300"/>
 
----
+
 
 ### 🧱 테트리스 (Tetris)
 <img src="./screenshots/tetris.png" width="300"/>
 
----
+
 
 ### 🎰 슬롯머신 (Slot Machine)
 
