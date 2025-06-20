@@ -63,23 +63,46 @@ public class Puzzle implements ActionListener {
         }
     }
 
+//    public void showAnswer() {
+//        for (int i = 0; i < getsu; i++) {
+//            for (int j = 0; j < getsu; j++) {
+//                btn[i][j].setIcon(new ImageIcon("src/puzzleGame/img/b" + answer[i][j] + ".png"));
+//            }
+//        }
+//
+//        try {
+//            Thread.sleep(1000);
+//        } catch (Exception e) {}
+//
+//        for (int i = 0; i < getsu; i++) {
+//            for (int j = 0; j < getsu; j++) {
+//                btn[i][j].setIcon(null);
+//            }
+//        }
+//    }
+
     public void showAnswer() {
+        // 1. 버튼에 이미지 설정
         for (int i = 0; i < getsu; i++) {
             for (int j = 0; j < getsu; j++) {
                 btn[i][j].setIcon(new ImageIcon("src/puzzleGame/img/b" + answer[i][j] + ".png"));
             }
         }
 
-        try {
-            Thread.sleep(1000);
-        } catch (Exception e) {}
-
-        for (int i = 0; i < getsu; i++) {
-            for (int j = 0; j < getsu; j++) {
-                btn[i][j].setIcon(null);
+        // 2. 화면 갱신 후 1초 뒤에 이미지 제거
+        Timer timer = new Timer(1000, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                for (int i = 0; i < getsu; i++) {
+                    for (int j = 0; j < getsu; j++) {
+                        btn[i][j].setIcon(null);
+                    }
+                }
             }
-        }
+        });
+        timer.setRepeats(false);
+        timer.start();
     }
+
 
     public void actionPerformed(ActionEvent e) {
         JButton b = (JButton) e.getSource();
