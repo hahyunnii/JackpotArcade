@@ -58,33 +58,37 @@ MainFrame.java           - 게임 선택 메인화면
 ## 🖼️ 게임 화면 스크린샷
 
 ### 🎮 메인 화면
-![Main Screen](./screenshots/MainFrame.png)
+<img src="./screenshots/MainFrame.png" width="300"/>
 
+---
 
 ### 🟤 오목 (Omok)
-  ![Omok1](./screenshots/omok1.png)
+<img src="./screenshots/omok1.png" width="300"/>
 
+---
 
 ### 🧩 그림 맞추기 퍼즐 (Puzzle Matching)
-  ![Puzzle3](./screenshots/puzzle3.png)
+<img src="./screenshots/puzzle3.png" width="300"/>
 
+---
 
 ### 👻 팩맨 (Pacman)
-  ![Pacman1](./screenshots/pacman1.png)
+<img src="./screenshots/pacman1.png" width="300"/>
 
+---
 
-### 🧱 테트리스 (Tetris) 
-  ![Tetris](./screenshots/tetris.png)
+### 🧱 테트리스 (Tetris)
+<img src="./screenshots/tetris.png" width="300"/>
 
+---
 
 ### 🎰 슬롯머신 (Slot Machine)
 
 - 결과 1: 무작위 심볼  
-  ![SlotMachine2](./screenshots/slotmachine2.png)
+  <img src="./screenshots/slotmachine2.png" width="300"/>
 
 - 결과 2: 두 개 일치  
-  ![SlotMachine3](./screenshots/slotmachine3.png)
+  <img src="./screenshots/slotmachine3.png" width="300"/>
 
 - 결과 3: 잭팟!  
-  ![SlotMachine4](./screenshots/slotmachine4.png)
-
+  <img src="./screenshots/slotmachine4.png" width="300"/>
